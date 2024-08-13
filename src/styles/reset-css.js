@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
   :root {
-    font-family: Inter, sans-serif;
+    font-family: Pretendard, Inter, sans-serif;
     color-scheme: light only;
   }
   
