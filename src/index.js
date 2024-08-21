@@ -23,9 +23,9 @@ export { EditHeaderTabs } from "./components/Edit/EditHeaderTabs";
 export { Loading } from "./components/Loading";
 
 export {
-  PageWrapper,
-  MainWrapper,
-  ContainerWrapper,
+  PageBox,
+  MainBox,
+  ContainerBox,
   ButtonBase,
   InputFieldBase,
   BadgeBase,

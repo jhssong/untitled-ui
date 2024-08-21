@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-export const PageWrapper = styled.div`
+export const PageBox = styled.div`
   display: flex;
 `;
 
-export const MainWrapper = styled.div`
+export const MainBox = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -15,7 +15,7 @@ export const MainWrapper = styled.div`
     !$isEditMode ? theme.colors.white : theme.colors.gray25};
 `;
 
-export const ContainerWrapper = styled.div`
+export const ContainerBox = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
