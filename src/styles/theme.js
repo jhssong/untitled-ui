@@ -169,58 +169,58 @@ const weight = {
 
 const text = {
   display2XL: `
-    font-size: 72px;
-    line-height: 90px;
+    font-size: 4.5rem; // 72px
+    line-height: 5.625rem;
     letter-spacing: -0.02em;
   `,
   displayXL: `
-    font-size: 60px;
-    line-height: 72px;
+    font-size: 3.75rem;  // 60px
+    line-height: 4.5rem;
     letter-spacing: -0.02em;
     `,
   displayLG: `
-    font-size: 48px;
-    line-height: 60px;
+    font-size: 3rem;  // 48px
+    line-height: 3.75rem;
     letter-spacing: -0.02em;
     `,
   displayMD: `
-    font-size: 36px;
-    line-height: 44px;
+    font-size: 2.25rem;  // 36px
+    line-height: 2.75rem;
     letter-spacing: -0.02em;
     `,
   displaySM: `
-    font-size: 30px;
-    line-height: 38px;
+    font-size: 1.875rem;  // 30px
+    line-height: 2.375rem;
     letter-spacing: -0.02em;
     `,
   displayXS: `
-    font-size: 24px;
-    line-height: 32px;
+    font-size: 1.5rem; // 24px
+    line-height: 2rem;
     letter-spacing: -0.02em;
     `,
   textXL: `
-    font-size: 20px;
-    line-height: 30px;
+    font-size: 1.25rem;  // 20px
+    line-height: 1.875rem;
     letter-spacing: -0.02em;
     `,
   textLG: `
-    font-size: 18px;
-    line-height: 28px;
+    font-size: 1.125rem;  // 18px
+    line-height: 1.75rem;
     letter-spacing: -0.02em;
     `,
   textMD: `
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 1rem;  // 16px
+    line-height: 1.5rem;
     letter-spacing: -0.02em;
     `,
   textSM: `
-    font-size: 14px;
-    line-height: 20px;
+    font-size: 0.875rem;  // 14px
+    line-height: 1.25rem;
     letter-spacing: -0.02em;
     `,
   textXS: `
-    font-size: 12px;
-    line-height: 18px;
+    font-size: 0.75rem;  // 12px
+    line-height: 1.125rem;
     letter-spacing: -0.02em;
     `,
 };
@@ -228,7 +228,7 @@ const text = {
 const theme = {
   colors: color,
   weights: weight,
-  fontSizes: text,
+  texts: text,
 };
 
-export default theme;
+export { theme };

@@ -38,9 +38,8 @@ const HeaderCellBox = styled.div`
 `;
 
 const HeaderCellBoxText = styled.div`
-  font-size: 12px;
+  ${({ theme }) => theme.texts.textXS}
   font-weight: ${({ theme }) => theme.weights.medium};
-  line-height: 18px;
   color: ${({ theme }) => theme.colors.gray600};
 `;
 
@@ -56,16 +55,14 @@ const CellBox = styled.div`
 `;
 
 const CellText = styled.div`
-  font-size: 14px;
+  ${({ theme }) => theme.texts.textSM}
   font-weight: ${({ theme }) => theme.weights.regular};
-  line-height: 20px;
   color: ${({ theme }) => theme.colors.gray900};
 `;
 
 const CellSupportingText = styled.div`
-  font-size: 14px;
+  ${({ theme }) => theme.texts.textSM}
   font-weight: ${({ theme }) => theme.weights.regular};
-  line-height: 20px;
   color: ${({ theme }) => theme.colors.gray600};
 `;
 

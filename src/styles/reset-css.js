@@ -20,6 +20,7 @@ const GlobalStyle = createGlobalStyle`
     -moz-user-select:none;
     -ms-user-select:none;
     user-select:none;
+    font-size: 16px;
   }
 
   input {
