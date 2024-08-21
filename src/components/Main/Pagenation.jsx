@@ -24,7 +24,7 @@ const PagenationActionButton = styled.div`
   cursor: pointer;
 `;
 
-const PagenationPageText = styled.div`
+const PagenationPageText = styled.span`
   ${({ theme }) => theme.texts.textSM}
   font-weight: ${({ theme }) => theme.weights.medium};
   color: ${({ theme }) => theme.colors.gray700};

@@ -20,7 +20,7 @@ const HeaderTabBase = styled.div`
   cursor: pointer;
 `;
 
-const HeaderTabText = styled.div`
+const HeaderTabText = styled.span`
   padding: 0px 0.25rem 1rem 0.25rem;
   ${({ theme }) => theme.texts.textSM}
   font-weight: ${({ theme }) => theme.weights.semiBold};

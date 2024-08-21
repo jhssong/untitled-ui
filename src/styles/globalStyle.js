@@ -24,9 +24,8 @@ export const InputFieldBase = styled.div`
   flex: 1;
   padding: 0.625rem 0.875rem;
   align-items: center;
-  font-size: 1rem;
+  ${({ theme }) => theme.texts.textMD}
   font-weight: ${({ theme }) => theme.weights.regular};
-  line-height: 1.5rem;
   color: ${({ theme }) => theme.colors.gray900};
   background-color: ${({ theme }) => theme.colors.white};
   border: 0.0625rem solid

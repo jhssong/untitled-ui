@@ -55,9 +55,8 @@ const DropdownMenuBox = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 0.625rem 0.875rem;
-  font-size: 1rem;
+  ${({ theme }) => theme.texts.textMD}
   font-weight: ${({ theme }) => theme.weights.medium};
-  line-height: 1.5rem;
   color: ${({ theme }) => theme.colors.gray900};
   background-color: ${({ theme, $selected }) =>
     $selected ? theme.colors.gray50 : theme.colors.white};

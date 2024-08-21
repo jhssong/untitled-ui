@@ -18,7 +18,7 @@ const TableBox = styled.div`
   display: flex;
 `;
 
-const ColumnBox = styled.div`
+const TableColumnBox = styled.div`
   display: flex;
   flex-direction: column;
   flex: ${({ $isFill }) => ($isFill ? 1 : null)};
@@ -37,7 +37,7 @@ const HeaderCellBox = styled.div`
     $index % 2 == 0 ? theme.colors.gray50 : theme.colors.white};
 `;
 
-const HeaderCellBoxText = styled.div`
+const HeaderCellBoxText = styled.span`
   ${({ theme }) => theme.texts.textXS}
   font-weight: ${({ theme }) => theme.weights.medium};
   color: ${({ theme }) => theme.colors.gray600};
@@ -54,13 +54,13 @@ const CellBox = styled.div`
     $index % 2 == 0 ? theme.colors.gray50 : theme.colors.white};
 `;
 
-const CellText = styled.div`
+const CellText = styled.span`
   ${({ theme }) => theme.texts.textSM}
   font-weight: ${({ theme }) => theme.weights.regular};
   color: ${({ theme }) => theme.colors.gray900};
 `;
 
-const CellSupportingText = styled.div`
+const CellSupportingText = styled.span`
   ${({ theme }) => theme.texts.textSM}
   font-weight: ${({ theme }) => theme.weights.regular};
   color: ${({ theme }) => theme.colors.gray600};
@@ -96,7 +96,7 @@ const Table = ({ originalData, tableBuilder }) => {
 
   const _buildTextCell = (cellData, index) => {
     return (
-      <ColumnBox $isFill={cellData.isFill} key={index}>
+      <TableColumnBox $isFill={cellData.isFill} key={index}>
         <HeaderCellBox>
           <HeaderCellBoxText>{cellData.headerText}</HeaderCellBoxText>
         </HeaderCellBox>
@@ -108,13 +108,13 @@ const Table = ({ originalData, tableBuilder }) => {
             </CellBox>
           );
         })}
-      </ColumnBox>
+      </TableColumnBox>
     );
   };
 
   const _buildButtonCell = (cellData, index) => {
     return (
-      <ColumnBox key={index}>
+      <TableColumnBox key={index}>
         <HeaderCellBox>
           <HeaderCellBoxText>{cellData.headerText}</HeaderCellBoxText>
         </HeaderCellBox>
@@ -135,13 +135,13 @@ const Table = ({ originalData, tableBuilder }) => {
             </CellBox>
           );
         })}
-      </ColumnBox>
+      </TableColumnBox>
     );
   };
 
   const _buildBadgeCell = (cellData, index) => {
     return (
-      <ColumnBox key={index}>
+      <TableColumnBox key={index}>
         <HeaderCellBox>
           <HeaderCellBoxText>{cellData.headerText}</HeaderCellBoxText>
         </HeaderCellBox>
@@ -153,7 +153,7 @@ const Table = ({ originalData, tableBuilder }) => {
             </CellBox>
           );
         })}
-      </ColumnBox>
+      </TableColumnBox>
     );
   };
 

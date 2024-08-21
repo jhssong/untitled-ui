@@ -19,13 +19,13 @@ const FormTextBox = styled.div`
   gap: 0.5rem;
 `;
 
-const FormTitleText = styled.div`
+const FormTitleText = styled.span`
   ${({ theme }) => theme.texts.textSM}
   font-weight: ${({ theme }) => theme.weights.semiBold};
   color: ${({ theme }) => theme.colors.gray700};
 `;
 
-const FormSupportingText = styled.div`
+const FormSupportingText = styled.span`
   ${({ theme }) => theme.texts.textSM}
   font-weight: ${({ theme }) => theme.weights.regular};
   color: ${({ theme }) => theme.colors.gray600};

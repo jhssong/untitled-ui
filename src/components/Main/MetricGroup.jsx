@@ -17,17 +17,13 @@ const MetricItemBox = styled.div`
   border: 0.0625rem solid ${({ theme }) => theme.colors.gray200};
 `;
 
-const MetricItemHeaderText = styled.div`
-  display: flex;
-  gap: 0.5rem;
-  justify-content: space-between;
-  font-size: 1rem;
+const MetricItemHeaderText = styled.span`
+  ${({ theme }) => theme.texts.textMD}
   font-weight: ${({ theme }) => theme.weights.semiBold};
-  line-height: 1.5rem;
   color: ${({ theme }) => theme.colors.gray900};
 `;
 
-const MetricItemText = styled.div`
+const MetricItemText = styled.span`
   ${({ theme }) => theme.texts.displayMD}
   font-weight: ${({ theme }) => theme.weights.semiBold};
   color: ${({ theme }) => theme.colors.gray900};

@@ -6,20 +6,20 @@ import FiltersLinesIcon from "../../assets/icons/filters-lines.svg?react";
 
 import SearchBar from "./SearchBar";
 
-const FiltersBarWrapper = styled.div`
+const FiltersBarLayout = styled.div`
   width: 100%;
   display: flex;
   gap: 1rem;
   border-radius: 0.5rem;
 `;
 
-const FiltersBarContent = styled.div`
+const FiltersBarRow = styled.div`
   display: flex;
   flex: 1;
   gap: 0.75rem;
 `;
 
-const FiltersBarButtons = styled.div`
+const FiltersBarButton = styled.div`
   display: flex;
   gap: 0.5rem;
   justify-content: center;
@@ -31,8 +31,8 @@ const FiltersBarButtons = styled.div`
   border: 0.0625rem solid ${({ theme }) => theme.colors.gray300};
 `;
 
-const FiltersBarSearchBarWrapper = styled.div`
-  width: 20;
+const FiltersBarSearchBarBox = styled.div`
+  width: 1.25rem;
   display: flex;
 `;
 
@@ -44,29 +44,29 @@ const FiltersBarSearchBarWrapper = styled.div`
  */
 const FiltersBar = ({ hasFilters, filterList }) => {
   return (
-    <FiltersBarWrapper>
-      <FiltersBarContent>
+    <FiltersBarLayout>
+      <FiltersBarRow>
         {hasFilters ? (
           <>
             {filterList.map((item, index) => {
               return (
-                <FiltersBarButtons key={index}>
+                <FiltersBarButton key={index}>
                   {item}
                   <XIcon />
-                </FiltersBarButtons>
+                </FiltersBarButton>
               );
             })}
-            <FiltersBarButtons>
+            <FiltersBarButton>
               <FiltersLinesIcon />
               필터
-            </FiltersBarButtons>
+            </FiltersBarButton>
           </>
         ) : null}
-      </FiltersBarContent>
-      <FiltersBarSearchBarWrapper>
+      </FiltersBarRow>
+      <FiltersBarSearchBarBox>
         <SearchBar />
-      </FiltersBarSearchBarWrapper>
-    </FiltersBarWrapper>
+      </FiltersBarSearchBarBox>
+    </FiltersBarLayout>
   );
 };
 

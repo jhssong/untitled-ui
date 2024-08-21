@@ -2,7 +2,7 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 import { ButtonBase } from "../../styles/globalStyle";
 
-const EditContentHeaderWrapper = styled.div`
+const EditContentHeaderLayout = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
@@ -11,11 +11,10 @@ const EditContentHeaderWrapper = styled.div`
 const EditContentHeaderSection = styled.div`
   display: flex;
   gap: 1rem;
+  justify-content: space-between;
 `;
 
-const EditContentHeaderText = styled.div`
-  display: flex;
-  flex: 1;
+const EditContentHeaderText = styled.span`
   ${({ theme }) => theme.texts.textLG}
   font-weight: ${({ theme }) => theme.weights.semiBold};
   color: ${({ theme }) => theme.colors.gray900};
@@ -34,7 +33,7 @@ const EditContainerDivider = styled.div`
 
 const EditContentHeader = ({ title, onCancel, onSubmit, isEditMode }) => {
   return (
-    <EditContentHeaderWrapper>
+    <EditContentHeaderLayout>
       <EditContentHeaderSection>
         <EditContentHeaderText>{title}</EditContentHeaderText>
         <EditContentHeaderActions>
@@ -45,7 +44,7 @@ const EditContentHeader = ({ title, onCancel, onSubmit, isEditMode }) => {
         </EditContentHeaderActions>
       </EditContentHeaderSection>
       <EditContainerDivider />
-    </EditContentHeaderWrapper>
+    </EditContentHeaderLayout>
   );
 };
 

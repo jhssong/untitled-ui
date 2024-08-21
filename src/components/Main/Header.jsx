@@ -15,13 +15,13 @@ const HeaderTextBox = styled.div`
   gap: 0.25rem;
 `;
 
-const HeaderText = styled.div`
+const HeaderText = styled.span`
   ${({ theme }) => theme.texts.displaySM}
   font-weight: ${({ theme }) => theme.weights.semiBold};
   color: ${({ theme }) => theme.colors.gray900};
 `;
 
-const HeaderSupportingText = styled.div`
+const HeaderSupportingText = styled.span`
   ${({ theme }) => theme.texts.textMD}
   font-weight: ${({ theme }) => theme.weights.regular};
   color: ${({ theme }) => theme.colors.gray600};
