@@ -7,7 +7,7 @@ const GlobalStyle = createGlobalStyle`
   :root {
     font-family: Pretendard, Inter, sans-serif;
     color-scheme: light only;
-    --toastify-toast-width: 400px;
+    --toastify-toast-width: 25rem;
   }
 
   .Toastify__toast-body {
@@ -28,8 +28,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   svg {
-    width: 20px;
-    height: 20px;
+    width: 1.25rem;
+    height: 1.25rem;
   }
 
   html,

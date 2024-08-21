@@ -1,7 +1,6 @@
 import { Bounce, toast } from "react-toastify";
 
 export function showSuccessToastMsg(msg) {
-  console.log("hello world");
   toast.success(msg, {
     position: "top-right",
     autoClose: 3000,
@@ -16,7 +15,6 @@ export function showSuccessToastMsg(msg) {
 }
 
 export function showErrorToastMsg(error) {
-  console.log("hello world");
   toast.error(`${error.error}\n${error.message}`, {
     position: "top-right",
     autoClose: 3000,
