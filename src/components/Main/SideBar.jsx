@@ -4,9 +4,9 @@ import PropTypes from "prop-types";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import { HorizontalDivider, VerticalDivider } from "../../styles/globalStyle";
-import ChevronUpIcon from "../assets/icons/chevron-up.svg?react";
-import ChevronDownIcon from "../assets/icons/chevron-down.svg?react";
-import LogOutIcon from "../assets/icons/log-out.svg?react";
+import ChevronUpIcon from "../../assets/icons/chevron-up.svg?react";
+import ChevronDownIcon from "../../assets/icons/chevron-down.svg?react";
+import LogOutIcon from "../../assets/icons/log-out.svg?react";
 
 const SidebarLayout = styled.div`
   height: auto;

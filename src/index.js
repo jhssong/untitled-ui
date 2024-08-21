@@ -12,6 +12,7 @@ export { Table, Pagenation } from "./components/Main/Table";
 export { MetricGroup } from "./components/Main/MetricGroup";
 export { Header } from "./components/Main/Header";
 export { FiltersBar } from "./components/Main/FiltersBar";
+export { SideBar } from "./components/Main/SideBar";
 
 export { FormInput } from "./components/Edit/FormInput";
 export { FormDropdown } from "./components/Edit/FormDropdown";

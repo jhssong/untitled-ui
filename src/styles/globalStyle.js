@@ -37,3 +37,15 @@ export const InputFieldBase = styled.div`
       ? `0 0 0.25rem ${theme.colors.brand100}, 0 0.0625rem 0.125rem rgba(16, 24, 40, 0.05)`
       : "none"};
 `;
+
+export const VerticalDivider = styled.div`
+  height: 100%;
+  width: 1px;
+  background-color: ${({ theme }) => theme.colors.gray200};
+`;
+
+export const HorizontalDivider = styled.div`
+  width: 100%;
+  height: 1px;
+  background-color: ${({ theme }) => theme.colors.gray200};
+`;
