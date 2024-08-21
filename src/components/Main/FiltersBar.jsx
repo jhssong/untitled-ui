@@ -32,7 +32,6 @@ const FiltersBarButton = styled.div`
 `;
 
 const FiltersBarSearchBarBox = styled.div`
-  width: 1.25rem;
   display: flex;
 `;
 
