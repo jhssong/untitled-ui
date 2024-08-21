@@ -6,7 +6,7 @@ const HeaderLayout = styled.div`
   display: flex;
   gap: 1rem;
   justify-content: space-between;
-  padding: 0rem 2rem;
+  padding: 0 2rem;
 `;
 
 const HeaderTextBox = styled.div`

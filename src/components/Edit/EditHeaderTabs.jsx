@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 const EditHeaderTabsLayout = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 0rem 2rem;
+  padding: 0 2rem;
 `;
 
 const HeaderTabsBox = styled.div`

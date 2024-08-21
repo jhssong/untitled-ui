@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 const MetricGroupLayout = styled.div`
   display: flex;
   gap: 1.5rem;
-  padding: 0rem 2rem;
+  padding: 0 2rem;
 `;
 
 const MetricItemBox = styled.div`

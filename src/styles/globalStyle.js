@@ -35,6 +35,6 @@ export const InputFieldBase = styled.div`
   border-radius: 0.5rem;
   box-shadow: ${({ theme, $focused }) =>
     $focused
-      ? `0rem 0rem 0.25rem ${theme.colors.brand100}, 0rem 0.0625rem 0.125rem rgba(16, 24, 40, 0.05)`
+      ? `0 0 0.25rem ${theme.colors.brand100}, 0 0.0625rem 0.125rem rgba(16, 24, 40, 0.05)`
       : "none"};
 `;
