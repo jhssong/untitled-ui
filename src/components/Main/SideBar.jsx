@@ -130,9 +130,8 @@ const FooterNavigation = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
-  font-size: 1rem;
+  ${({ theme }) => theme.texts.textMD}
   font-weight: ${({ theme }) => theme.weights.semiBold};
-  line-height: 1.5rem;
   color: ${({ theme }) => theme.colors.gray700};
 `;
 

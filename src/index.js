@@ -21,3 +21,14 @@ export { EditContentHeader } from "./components/Edit/EditContentHeader";
 export { EditHeaderTabs } from "./components/Edit/EditHeaderTabs";
 
 export { Loading } from "./components/Loading";
+
+export {
+  PageWrapper,
+  MainWrapper,
+  ContainerWrapper,
+  ButtonBase,
+  InputFieldBase,
+  BadgeBase,
+  VerticalDivider,
+  HorizontalDivider,
+} from "./styles/globalStyle";

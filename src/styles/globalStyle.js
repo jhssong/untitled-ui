@@ -1,5 +1,27 @@
 import styled from "styled-components";
 
+export const PageWrapper = styled.div`
+  display: flex;
+`;
+
+export const MainWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding-top: 32px;
+  padding-bottom: 48px;
+  background-color: ${({ theme, $isEditMode }) =>
+    !$isEditMode ? theme.colors.white : theme.colors.gray25};
+`;
+
+export const ContainerWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 0px 32px;
+`;
+
 export const ButtonBase = styled.div`
   display: flex;
   gap: 0.5rem;
@@ -36,6 +58,18 @@ export const InputFieldBase = styled.div`
     $focused
       ? `0 0 0.25rem ${theme.colors.brand100}, 0 0.0625rem 0.125rem rgba(16, 24, 40, 0.05)`
       : "none"};
+`;
+
+export const BadgeBase = styled.div`
+  display: inline-flex;
+  width: fit-content;
+  padding: 2px 8px;
+  ${({ theme }) => theme.texts.textXS}
+  font-weight: ${({ theme }) => theme.weights.medium};
+  color: ${({ theme, $fontColor }) => theme.colors[$fontColor]};
+  background-color: ${({ theme, $backgroundColor }) =>
+    theme.colors[$backgroundColor]};
+  border-radius: 16px;
 `;
 
 export const VerticalDivider = styled.div`
