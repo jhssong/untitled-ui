@@ -1,10 +1,17 @@
 import { createGlobalStyle } from "styled-components";
+import "react-toastify/dist/ReactToastify.css";
+
 import "./fonts/pretendard.css";
 
 const GlobalStyle = createGlobalStyle`
   :root {
     font-family: Pretendard, Inter, sans-serif;
     color-scheme: light only;
+    --toastify-toast-width: 400px;
+  }
+
+  .Toastify__toast-body {
+    white-space: pre-line;
   }
   
   html {
@@ -155,4 +162,4 @@ const GlobalStyle = createGlobalStyle`
   }  
 `;
 
-export default GlobalStyle;
+export { GlobalStyle };
