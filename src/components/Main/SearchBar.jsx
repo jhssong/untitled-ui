@@ -6,11 +6,11 @@ import SearchIcon from "../../assets/icons/search.svg?react";
 const SearchBarLayout = styled.div`
   display: flex;
   width: 100%;
-  gap: 8px;
-  padding: 10px 14px;
-  border-radius: 8px;
-  border: 1px solid ${({ theme }) => theme.colors.gray300};
-  border: 1px solid
+  gap: 0.5rem;
+  padding: 0.625rem 0.875rem;
+  border-radius: 0.5rem;
+  border: 0.0625rem solid ${({ theme }) => theme.colors.gray300};
+  border: 0.0625rem solid
     ${({ theme, $focused }) =>
       $focused ? theme.colors.brand300 : theme.colors.gray300};
   ${({ theme }) => theme.texts.textMD}
@@ -19,7 +19,7 @@ const SearchBarLayout = styled.div`
     $focused ? theme.colors.gray900 : theme.colors.gray500};
   box-shadow: ${({ $focused, theme }) =>
     $focused
-      ? `0px 0px 4px ${theme.colors.brand100}, 0px 1px 2px rgba(16, 24, 40, 0.05)`
+      ? `0rem 0rem 0.25rem ${theme.colors.brand100}, 0rem 0.0625rem 0.125rem rgba(16, 24, 40, 0.05)`
       : "none"};
 `;
 
@@ -27,8 +27,8 @@ const SearchIconBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 24px;
-  height: 24px;
+  width: 1.5rem;
+  height: 1.5rem;
 `;
 
 const SearchInputBox = styled.input`

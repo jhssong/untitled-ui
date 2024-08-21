@@ -4,15 +4,15 @@ import { ButtonBase } from "../../styles/globalStyle";
 
 const HeaderLayout = styled.div`
   display: flex;
-  gap: 16px;
+  gap: 1rem;
   justify-content: space-between;
-  padding: 0px 32px;
+  padding: 0rem 2rem;
 `;
 
 const HeaderTextBox = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 0.25rem;
 `;
 
 const HeaderText = styled.div`
@@ -29,7 +29,7 @@ const HeaderSupportingText = styled.div`
 
 const HeaderActionsBox = styled.div`
   display: flex;
-  gap: 12px;
+  gap: 0.75rem;
   align-self: flex-start;
 `;
 

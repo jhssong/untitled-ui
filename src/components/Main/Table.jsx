@@ -10,8 +10,8 @@ const TableLayout = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
-  border-radius: 12px;
-  border: 1px solid ${({ theme }) => theme.colors.gray200};
+  border-radius: 0.75rem;
+  border: 0.0625rem solid ${({ theme }) => theme.colors.gray200};
 `;
 
 const TableBox = styled.div`
@@ -25,14 +25,14 @@ const ColumnBox = styled.div`
 `;
 
 const HeaderCellBox = styled.div`
-  height: 44px;
+  height: 2.75rem;
   display: flex;
-  gap: 4px;
+  gap: 0.25rem;
   align-items: center;
-  padding: 0 24px;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.gray200};
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
+  padding: 0 1.5rem;
+  border-bottom: 0.0625rem solid ${({ theme }) => theme.colors.gray200};
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
   background-color: ${({ theme, $index }) =>
     $index % 2 == 0 ? theme.colors.gray50 : theme.colors.white};
 `;
@@ -44,12 +44,12 @@ const HeaderCellBoxText = styled.div`
 `;
 
 const CellBox = styled.div`
-  height: 72px;
+  height: 4.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 24px;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.gray200};
+  padding: 0 1.5rem;
+  border-bottom: 0.0625rem solid ${({ theme }) => theme.colors.gray200};
   background-color: ${({ theme, $index }) =>
     $index % 2 == 0 ? theme.colors.gray50 : theme.colors.white};
 `;
@@ -67,16 +67,16 @@ const CellSupportingText = styled.div`
 `;
 
 const ButtonCellBox = styled.div`
-  height: 72px;
+  height: 4.5rem;
   display: flex;
-  gap: 4px;
+  gap: 0.25rem;
   justify-content: center;
   align-items: center;
-  padding: 0 16px;
+  padding: 0 1rem;
 `;
 
 const ButtonCellBase = styled.div`
-  padding: 10px 10px;
+  padding: 0.625rem;
   cursor: pointer;
 `;
 

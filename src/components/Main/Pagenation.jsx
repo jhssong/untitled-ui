@@ -4,31 +4,29 @@ import PropTypes from "prop-types";
 const PagenationLayout = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 12px 24px 16px 24px;
+  padding: 0.75rem 1.5rem 1rem 1.5rem;
   align-items: center;
 `;
 
 const PagenationActionsBox = styled.div`
   display: flex;
-  gap: 12px;
+  gap: 0.75rem;
 `;
 
 const PagenationActionButton = styled.div`
   display: flex;
-  padding: 8px 14px;
-  border-radius: 8px;
-  border: 1px solid ${({ theme }) => theme.colors.gray300};
-  font-size: 14px;
+  padding: 0.5rem 0.875rem;
+  border-radius: 0.5rem;
+  border: 0.0625rem solid ${({ theme }) => theme.colors.gray300};
+  ${({ theme }) => theme.texts.textSM}
   font-weight: ${({ theme }) => theme.weights.semiBold};
-  line-height: 20px;
   color: ${({ theme }) => theme.colors.gray700};
   cursor: pointer;
 `;
 
 const PagenationPageText = styled.div`
-  font-size: 14px;
+  ${({ theme }) => theme.texts.textSM}
   font-weight: ${({ theme }) => theme.weights.medium};
-  line-height: 20px;
   color: ${({ theme }) => theme.colors.gray700};
 `;
 

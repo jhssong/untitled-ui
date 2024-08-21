@@ -3,27 +3,27 @@ import PropTypes from "prop-types";
 
 const MetricGroupLayout = styled.div`
   display: flex;
-  gap: 24px;
-  padding: 0px 32px;
+  gap: 1.5rem;
+  padding: 0rem 2rem;
 `;
 
 const MetricItemBox = styled.div`
   display: flex;
   flex: 1;
   flex-direction: column;
-  gap: 24px;
-  padding: 24px;
-  border-radius: 8px;
-  border: 1px solid ${({ theme }) => theme.colors.gray200};
+  gap: 1.5rem;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  border: 0.0625rem solid ${({ theme }) => theme.colors.gray200};
 `;
 
 const MetricItemHeaderText = styled.div`
   display: flex;
-  gap: 8px;
+  gap: 0.5rem;
   justify-content: space-between;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: ${({ theme }) => theme.weights.semiBold};
-  line-height: 24px;
+  line-height: 1.5rem;
   color: ${({ theme }) => theme.colors.gray900};
 `;
 
