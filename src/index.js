@@ -11,3 +11,4 @@ export { theme } from "./styles/theme";
 export { Table, Pagenation } from "./components/Main/Table";
 export { MetricGroup } from "./components/Main/MetricGroup";
 export { Header } from "./components/Main/Header";
+export { Loading } from "./components/Loading";
