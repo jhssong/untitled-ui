@@ -28,7 +28,7 @@ const MetricItemHeaderText = styled.div`
 `;
 
 const MetricItemText = styled.div`
-  ${({ theme }) => theme.texts.textMD}
+  ${({ theme }) => theme.texts.displayMD}
   font-weight: ${({ theme }) => theme.weights.semiBold};
   color: ${({ theme }) => theme.colors.gray900};
 `;

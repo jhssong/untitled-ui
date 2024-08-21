@@ -12,3 +12,4 @@ export { Table, Pagenation } from "./components/Main/Table";
 export { MetricGroup } from "./components/Main/MetricGroup";
 export { Header } from "./components/Main/Header";
 export { Loading } from "./components/Loading";
+export { FiltersBar } from "./components/Main/FiltersBar";
