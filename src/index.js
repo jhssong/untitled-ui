@@ -16,5 +16,7 @@ export { FiltersBar } from "./components/Main/FiltersBar";
 export { FormInput } from "./components/Edit/FormInput";
 export { FormDropdown } from "./components/Edit/FormDropdown";
 export { FormSection } from "./components/Edit/FormContainer";
+export { EditContentHeader } from "./components/Edit/EditContentHeader";
+export { EditHeaderTabs } from "./components/Edit/EditHeaderTabs";
 
 export { Loading } from "./components/Loading";
