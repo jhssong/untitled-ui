@@ -3,7 +3,7 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 import { ChevronUp, ChevronDown } from "@untitled-ui/icons-react";
 
-import { InputFieldBase, withStyledIcon } from "../../styles/globalStyle";
+import { InputFieldBase, styledIcon } from "../../styles/globalStyle";
 
 const FormDropdownLayout = styled.div`
   display: flex;
@@ -61,8 +61,8 @@ const DropdownMenuBox = styled.div`
   cursor: pointer;
 `;
 
-const ChevronUpIcon = withStyledIcon(ChevronUp);
-const ChevronDownIcon = withStyledIcon(ChevronDown);
+const ChevronUpIcon = styledIcon({ icon: ChevronUp });
+const ChevronDownIcon = styledIcon({ icon: ChevronDown });
 
 const FormDropdown = ({ placeholder, menus, selectedMenu, handleChange }) => {
   const [value, setValue] = useState(

@@ -95,7 +95,6 @@ const Table = ({ originalData, tableBuilder, searchKeys }) => {
   }, [currentPage, originalData, tableBuilder]);
 
   useEffect(() => {
-    console.log(originalData);
     _resetTableContent();
   }, [_resetTableContent, currentPage, originalData, tableBuilder]);
 

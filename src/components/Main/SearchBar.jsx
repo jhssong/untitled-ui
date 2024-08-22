@@ -3,7 +3,7 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 import { SearchMd } from "@untitled-ui/icons-react";
 
-import { withStyledIcon } from "../../styles/globalStyle";
+import { styledIcon } from "../../styles/globalStyle";
 
 const SearchBarLayout = styled.div`
   display: flex;
@@ -40,7 +40,7 @@ const SearchInputBox = styled.input`
   outline: none;
 `;
 
-const SearchIcon = withStyledIcon(SearchMd);
+const SearchIcon = styledIcon({ icon: SearchMd });
 
 const SearchBar = ({ searchValue, setSearchValue }) => {
   const [focused, setFocused] = useState(false);

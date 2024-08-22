@@ -30,5 +30,5 @@ export {
   BadgeBase,
   VerticalDivider,
   HorizontalDivider,
-  withStyledIcon,
+  styledIcon,
 } from "./styles/globalStyle";

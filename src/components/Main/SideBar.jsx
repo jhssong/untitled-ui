@@ -7,7 +7,7 @@ import { ChevronUp, ChevronDown, LogOut01 } from "@untitled-ui/icons-react";
 import {
   HorizontalDivider,
   VerticalDivider,
-  withStyledIcon,
+  styledIcon,
 } from "../../styles/globalStyle";
 
 const SidebarLayout = styled.div`
@@ -178,9 +178,9 @@ const LogoutButton = styled.div`
   justify-content: center;
 `;
 
-const ChevronUpIcon = withStyledIcon(ChevronUp);
-const ChevronDownIcon = withStyledIcon(ChevronDown);
-const LogOutIcon = withStyledIcon(LogOut01);
+const ChevronUpIcon = styledIcon({ icon: ChevronUp });
+const ChevronDownIcon = styledIcon({ icon: ChevronDown });
+const LogOutIcon = styledIcon({ icon: LogOut01 });
 
 const SideBar = ({
   navMenus,

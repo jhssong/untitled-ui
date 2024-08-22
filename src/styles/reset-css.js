@@ -27,11 +27,6 @@ const GlobalStyle = createGlobalStyle`
     background-color: ${({ theme }) => theme.colors.white}
   }
 
-  svg {
-    width: 1.25rem;
-    height: 1.25rem;
-  }
-
   html,
   body,
   div,

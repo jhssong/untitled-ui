@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 import SearchBar from "./SearchBar";
 
-// import { withStyledIcon } from "../../styles/globalStyle";
+// import { styledIcon } from "../../styles/globalStyle";
 
 const FiltersBarLayout = styled.div`
   width: 100%;
@@ -36,8 +36,8 @@ const FiltersBarSearchBarBox = styled.div`
   display: flex;
 `;
 
-// const XIcon = withStyledIcon(X);
-// const FiltersLinesIcon = withStyledIcon(FilterLines);
+// const XIcon = styledIcon(X);
+// const FiltersLinesIcon = styledIcon(FilterLines);
 
 const FiltersBar = ({
   // hasFilters,
