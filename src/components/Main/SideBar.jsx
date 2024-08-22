@@ -2,11 +2,13 @@ import { useState, useEffect, useRef, useLayoutEffect } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import { useLocation, useNavigate } from "react-router-dom";
+import { ChevronUp, ChevronDown, LogOut01 } from "@untitled-ui/icons-react";
 
-import { HorizontalDivider, VerticalDivider } from "../../styles/globalStyle";
-import ChevronUpIcon from "../../assets/icons/chevron-up.svg?react";
-import ChevronDownIcon from "../../assets/icons/chevron-down.svg?react";
-import LogOutIcon from "../../assets/icons/log-out.svg?react";
+import {
+  HorizontalDivider,
+  VerticalDivider,
+  withStyledIcon,
+} from "../../styles/globalStyle";
 
 const SidebarLayout = styled.div`
   height: auto;
@@ -176,6 +178,10 @@ const LogoutButton = styled.div`
   justify-content: center;
 `;
 
+const ChevronUpIcon = withStyledIcon(ChevronUp);
+const ChevronDownIcon = withStyledIcon(ChevronDown);
+const LogOutIcon = withStyledIcon(LogOut01);
+
 const SideBar = ({
   navMenus,
   navSubMenus,
@@ -232,9 +238,9 @@ const SideBar = ({
   const _navItemActionsBuilder = (index) => {
     if (index == 0) return null;
     return selectedNav == index && isMenuOpened ? (
-      <ChevronUpIcon />
+      <ChevronUpIcon strokecolor='#98A2B3' />
     ) : (
-      <ChevronDownIcon />
+      <ChevronDownIcon strokecolor='#98A2B3' />
     );
   };
 
@@ -343,6 +349,7 @@ const SideBar = ({
             </FooterAccountAvatar>
             <LogoutButton onClick={() => logout()}>
               <LogOutIcon
+                strokecolor='#667085'
                 style={{
                   cursor: "pointer",
                 }}

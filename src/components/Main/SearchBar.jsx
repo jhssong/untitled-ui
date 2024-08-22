@@ -1,7 +1,8 @@
 import { useState } from "react";
 import styled from "styled-components";
+import { SearchMd } from "@untitled-ui/icons-react";
 
-import SearchIcon from "../../assets/icons/search.svg?react";
+import { withStyledIcon } from "../../styles/globalStyle";
 
 const SearchBarLayout = styled.div`
   display: flex;
@@ -38,13 +39,15 @@ const SearchInputBox = styled.input`
   outline: none;
 `;
 
+const SearchIcon = withStyledIcon(SearchMd);
+
 const SearchBar = () => {
   const [focused, setFocused] = useState(false);
 
   return (
     <SearchBarLayout $focused={focused}>
       <SearchIconBox>
-        <SearchIcon />
+        <SearchIcon strokecolor='#667085' />
       </SearchIconBox>
       <SearchInputBox
         type='text'

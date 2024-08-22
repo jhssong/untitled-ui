@@ -83,3 +83,12 @@ export const HorizontalDivider = styled.div`
   height: 0.0625rem;
   background-color: ${({ theme }) => theme.colors.gray200};
 `;
+
+export const withStyledIcon = (
+  IconComponent,
+  strokecolor = "#344054"
+) => styled(IconComponent)`
+  path {
+    stroke: ${strokecolor}; /* Use the parameter for stroke color */
+  }
+`;

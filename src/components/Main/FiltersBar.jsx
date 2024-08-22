@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import PropTypes from "prop-types";
-
-import XIcon from "../../assets/icons/x.svg?react";
-import FiltersLinesIcon from "../../assets/icons/filters-lines.svg?react";
+import { X, FilterLines } from "@untitled-ui/icons-react";
 
 import SearchBar from "./SearchBar";
+
+import { withStyledIcon } from "../../styles/globalStyle";
 
 const FiltersBarLayout = styled.div`
   width: 100%;
@@ -34,6 +34,9 @@ const FiltersBarButton = styled.div`
 const FiltersBarSearchBarBox = styled.div`
   display: flex;
 `;
+
+const XIcon = withStyledIcon(X);
+const FiltersLinesIcon = withStyledIcon(FilterLines);
 
 /**
  * FiltersBar
