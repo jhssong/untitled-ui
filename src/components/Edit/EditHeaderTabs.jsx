@@ -21,7 +21,7 @@ const HeaderTabBase = styled.div`
 `;
 
 const HeaderTabText = styled.span`
-  padding: 0px 0.25rem 1rem 0.25rem;
+  padding: 0 0.25rem 1rem 0.25rem;
   ${({ theme }) => theme.texts.textSM}
   font-weight: ${({ theme }) => theme.weights.semiBold};
   color: ${({ theme, $selected }) =>

@@ -8,9 +8,9 @@ export const MainBox = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  padding-top: 32px;
-  padding-bottom: 48px;
+  gap: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
   background-color: ${({ theme, $isEditMode }) =>
     !$isEditMode ? theme.colors.white : theme.colors.gray25};
 `;
@@ -18,8 +18,8 @@ export const MainBox = styled.div`
 export const ContainerBox = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  padding: 0px 32px;
+  gap: 1.5rem;
+  padding: 0 2rem;
 `;
 
 export const ButtonBase = styled.div`
@@ -63,23 +63,23 @@ export const InputFieldBase = styled.div`
 export const BadgeBase = styled.div`
   display: inline-flex;
   width: fit-content;
-  padding: 2px 8px;
+  padding: 0.125rem 0.5rem;
   ${({ theme }) => theme.texts.textXS}
   font-weight: ${({ theme }) => theme.weights.medium};
   color: ${({ theme, $fontColor }) => theme.colors[$fontColor]};
   background-color: ${({ theme, $backgroundColor }) =>
     theme.colors[$backgroundColor]};
-  border-radius: 16px;
+  border-radius: 1rem;
 `;
 
 export const VerticalDivider = styled.div`
   height: 100%;
-  width: 1px;
+  width: 0.0625rem;
   background-color: ${({ theme }) => theme.colors.gray200};
 `;
 
 export const HorizontalDivider = styled.div`
   width: 100%;
-  height: 1px;
+  height: 0.0625rem;
   background-color: ${({ theme }) => theme.colors.gray200};
 `;
