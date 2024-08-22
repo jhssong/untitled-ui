@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
 import Pagenation from "./Pagenation";
+import { FiltersBar } from "./FiltersBar";
 
 const ITEMS_PER_PAGE = 10;
 
@@ -80,19 +81,46 @@ const ButtonCellBase = styled.div`
   cursor: pointer;
 `;
 
-const Table = ({ originalData, tableBuilder }) => {
+const Table = ({ originalData, tableBuilder, searchKeys }) => {
   const [content, SetContent] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPage, setTotalPage] = useState(1);
+  const [searchValue, setSearchValue] = useState("");
 
-  useEffect(() => {
+  const _resetTableContent = useCallback(() => {
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
     const data = originalData.slice(startIndex, startIndex + ITEMS_PER_PAGE);
     setTotalPage(Math.ceil(originalData.length / ITEMS_PER_PAGE));
     SetContent(tableBuilder(data));
   }, [currentPage, originalData, tableBuilder]);
 
+  useEffect(() => {
+    console.log(originalData);
+    _resetTableContent();
+  }, [_resetTableContent, currentPage, originalData, tableBuilder]);
+
   const handlePageChange = (newPage) => setCurrentPage(newPage);
+
+  useEffect(() => {
+    if (searchValue.length == 0) {
+      _resetTableContent();
+      return;
+    }
+    const searchedData = originalData.filter((item) =>
+      searchKeys.some((key) => item[key].includes(searchValue))
+    );
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    const data = searchedData.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+    setTotalPage(Math.ceil(searchedData.length / ITEMS_PER_PAGE));
+    SetContent(tableBuilder(data));
+  }, [
+    _resetTableContent,
+    currentPage,
+    originalData,
+    searchValue,
+    tableBuilder,
+    searchKeys,
+  ]);
 
   const _buildTextCell = (cellData, index) => {
     return (
@@ -158,26 +186,30 @@ const Table = ({ originalData, tableBuilder }) => {
   };
 
   return (
-    <TableLayout>
-      <TableBox>
-        {content.map((item, index) => {
-          if (item.isButton) return _buildButtonCell(item, index);
-          else if (item.isBadge) return _buildBadgeCell(item, index);
-          else return _buildTextCell(item, index);
-        })}
-      </TableBox>
-      <Pagenation
-        currentPage={currentPage}
-        totalPage={totalPage}
-        onPageChange={handlePageChange}
-      />
-    </TableLayout>
+    <>
+      <FiltersBar searchValue={searchValue} setSearchValue={setSearchValue} />
+      <TableLayout>
+        <TableBox>
+          {content.map((item, index) => {
+            if (item.isButton) return _buildButtonCell(item, index);
+            else if (item.isBadge) return _buildBadgeCell(item, index);
+            else return _buildTextCell(item, index);
+          })}
+        </TableBox>
+        <Pagenation
+          currentPage={currentPage}
+          totalPage={totalPage}
+          onPageChange={handlePageChange}
+        />
+      </TableLayout>
+    </>
   );
 };
 
 Table.propTypes = {
-  originalData: PropTypes.array,
-  tableBuilder: PropTypes.func,
+  originalData: PropTypes.array.isRequired,
+  tableBuilder: PropTypes.func.isRequired,
+  searchKeys: PropTypes.array.isRequired,
 };
 
 export { Table, Pagenation };

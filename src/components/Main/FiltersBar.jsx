@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import PropTypes from "prop-types";
-import { X, FilterLines } from "@untitled-ui/icons-react";
+// import { X, FilterLines } from "@untitled-ui/icons-react";
 
 import SearchBar from "./SearchBar";
 
-import { withStyledIcon } from "../../styles/globalStyle";
+// import { withStyledIcon } from "../../styles/globalStyle";
 
 const FiltersBarLayout = styled.div`
   width: 100%;
@@ -19,6 +19,7 @@ const FiltersBarRow = styled.div`
   gap: 0.75rem;
 `;
 
+// eslint-disable-next-line no-unused-vars
 const FiltersBarButton = styled.div`
   display: flex;
   gap: 0.5rem;
@@ -35,20 +36,19 @@ const FiltersBarSearchBarBox = styled.div`
   display: flex;
 `;
 
-const XIcon = withStyledIcon(X);
-const FiltersLinesIcon = withStyledIcon(FilterLines);
+// const XIcon = withStyledIcon(X);
+// const FiltersLinesIcon = withStyledIcon(FilterLines);
 
-/**
- * FiltersBar
- * @param {boolean} hasFilters - Whether using filters or not
- * @param {string} filterList - List of filters (required when hasFilters is true)
- * @returns
- */
-const FiltersBar = ({ hasFilters, filterList }) => {
+const FiltersBar = ({
+  // hasFilters,
+  // filterList,
+  searchValue,
+  setSearchValue,
+}) => {
   return (
     <FiltersBarLayout>
       <FiltersBarRow>
-        {hasFilters ? (
+        {/* {hasFilters ? (
           <>
             {filterList.map((item, index) => {
               return (
@@ -63,18 +63,20 @@ const FiltersBar = ({ hasFilters, filterList }) => {
               필터
             </FiltersBarButton>
           </>
-        ) : null}
+        ) : null} */}
       </FiltersBarRow>
       <FiltersBarSearchBarBox>
-        <SearchBar />
+        <SearchBar searchValue={searchValue} setSearchValue={setSearchValue} />
       </FiltersBarSearchBarBox>
     </FiltersBarLayout>
   );
 };
 
 FiltersBar.propTypes = {
-  hasFilters: PropTypes.bool.isRequired,
-  filterList: PropTypes.array,
+  // hasFilters: PropTypes.bool.isRequired,
+  // filterList: PropTypes.array,
+  searchValue: PropTypes.string.isRequired,
+  setSearchValue: PropTypes.func.isRequired,
 };
 
 export { FiltersBar };

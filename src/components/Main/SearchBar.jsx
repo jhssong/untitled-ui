@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 import { SearchMd } from "@untitled-ui/icons-react";
 
 import { withStyledIcon } from "../../styles/globalStyle";
@@ -41,7 +42,7 @@ const SearchInputBox = styled.input`
 
 const SearchIcon = withStyledIcon(SearchMd);
 
-const SearchBar = () => {
+const SearchBar = ({ searchValue, setSearchValue }) => {
   const [focused, setFocused] = useState(false);
 
   return (
@@ -52,11 +53,18 @@ const SearchBar = () => {
       <SearchInputBox
         type='text'
         placeholder='이름을 입력하세요'
+        value={searchValue}
+        onChange={(e) => setSearchValue(e.target.value.trim())}
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
       />
     </SearchBarLayout>
   );
+};
+
+SearchBar.propTypes = {
+  searchValue: PropTypes.string.isRequired,
+  setSearchValue: PropTypes.func.isRequired,
 };
 
 export default SearchBar;
