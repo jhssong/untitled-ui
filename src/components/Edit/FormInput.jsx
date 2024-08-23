@@ -13,9 +13,18 @@ const FormInputBox = styled.input`
   display: flex;
   border: 0;
   outline: none;
+  caret-color: ${({ $hideCursor }) => ($hideCursor ? "transparent" : "auto")};
 `;
 
-const FormInput = ({ placeholder, value, handleChange, readOnly, type }) => {
+const FormInput = ({
+  placeholder,
+  value,
+  handleChange,
+  readOnly,
+  type,
+  hideCursor = false,
+  disabled = false,
+}) => {
   const [focused, setFocused] = useState(false);
 
   return (
@@ -31,6 +40,8 @@ const FormInput = ({ placeholder, value, handleChange, readOnly, type }) => {
           placeholder={placeholder}
           onChange={(e) => handleChange(e.currentTarget.value)}
           type={type}
+          $hideCursor={hideCursor}
+          disabled={disabled}
         />
       </InputFieldBase>
     </FormInputLayout>
@@ -43,6 +54,8 @@ FormInput.propTypes = {
   handleChange: PropTypes.func,
   readOnly: PropTypes.bool,
   type: PropTypes.string,
+  hideCursor: PropTypes.bool,
+  disabled: PropTypes.bool,
 };
 
 export { FormInput };
