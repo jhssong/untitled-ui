@@ -20,6 +20,7 @@ export { EditContentHeader } from "./components/Edit/EditContentHeader";
 export { EditHeaderTabs } from "./components/Edit/EditHeaderTabs";
 
 export { Loading } from "./components/Loading";
+export { Modal } from "./components/Modal";
 
 export {
   PageBox,
