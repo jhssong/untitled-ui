@@ -23,6 +23,7 @@ const FormInputBox = styled.input`
   border: 0;
   outline: none;
   cursor: pointer;
+  caret-color: transparent;
 `;
 
 const DropdownBox = styled.div`
