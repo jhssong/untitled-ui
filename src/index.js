@@ -33,3 +33,5 @@ export {
   HorizontalDivider,
   styledIcon,
 } from "./styles/globalStyle";
+
+import "react-toastify/dist/ReactToastify.css";
