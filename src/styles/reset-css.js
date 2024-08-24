@@ -24,6 +24,11 @@ const GlobalStyle = createGlobalStyle`
   input {
     background-color: ${({ theme }) => theme.colors.white}
   }
+  input::-webkit-inner-spin-button {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+  }
 
   html,
   body,
