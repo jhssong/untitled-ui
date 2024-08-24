@@ -20,6 +20,7 @@ const FormInput = ({
   placeholder,
   value,
   handleChange,
+  handleBlur = () => {},
   readOnly,
   type,
   hideCursor = false,
@@ -39,6 +40,7 @@ const FormInput = ({
           value={value}
           placeholder={placeholder}
           onChange={(e) => handleChange(e.currentTarget.value)}
+          onBlur={(e) => handleBlur(e.currentTarget.value)}
           type={type}
           $hideCursor={hideCursor}
           disabled={disabled}
@@ -52,6 +54,7 @@ FormInput.propTypes = {
   placeholder: PropTypes.string,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   handleChange: PropTypes.func,
+  handleBlur: PropTypes.func,
   readOnly: PropTypes.bool,
   type: PropTypes.string,
   hideCursor: PropTypes.bool,
