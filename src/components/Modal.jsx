@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import { FormInput } from "./Edit/FormInput";
 
 const ModalBackdrop = styled.div`
   position: fixed;
@@ -50,12 +51,13 @@ const ModalSupportText = styled.div`
 
 const ModalActionsBox = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 0.75rem;
 `;
 
 const ModalActionsButton = styled.div`
   display: flex;
+  flex: 1;
   justify-content: center;
   padding: 0.625rem 1.125rem;
   ${({ theme }) => theme.texts.textMD}
@@ -79,6 +81,10 @@ const Modal = ({
   handleConfirm,
   handleCancel,
   handleModalBackdropClick,
+  hasInputField = false,
+  placeholder = "",
+  value = "",
+  handleChange = () => {},
 }) => {
   return showModal ? (
     <ModalBackdrop onClick={handleModalBackdropClick}>
@@ -89,13 +95,20 @@ const Modal = ({
             <ModalTitle>{title}</ModalTitle>
             <ModalSupportText>{supporingText}</ModalSupportText>
           </ModalTextBox>
+          {hasInputField && (
+            <FormInput
+              placeholder={placeholder}
+              value={value}
+              handleChange={handleChange}
+            />
+          )}
         </ModalBox>
         <ModalActionsBox>
-          <ModalActionsButton $isConfirmBtn={true} onClick={handleConfirm}>
-            확인
-          </ModalActionsButton>
           <ModalActionsButton $isConfirmBtn={false} onClick={handleCancel}>
             취소
+          </ModalActionsButton>
+          <ModalActionsButton $isConfirmBtn={true} onClick={handleConfirm}>
+            확인
           </ModalActionsButton>
         </ModalActionsBox>
       </ModalLayout>
@@ -111,6 +124,10 @@ Modal.propTypes = {
   handleConfirm: PropTypes.func.isRequired,
   handleCancel: PropTypes.func.isRequired,
   handleModalBackdropClick: PropTypes.func.isRequired,
+  hasInputField: PropTypes.bool,
+  placeholder: PropTypes.string,
+  value: PropTypes.string,
+  handleChange: PropTypes.func,
 };
 
 export { Modal };

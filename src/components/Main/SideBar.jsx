@@ -236,7 +236,7 @@ const SideBar = ({
   }, [navMenus, navSubMenus, pathname]);
 
   const _navItemActionsBuilder = (index) => {
-    if (index == 0) return null;
+    if (navSubMenus[index].length == 0) return null;
     return selectedNav == index && isMenuOpened ? (
       <ChevronUpIcon strokecolor='#98A2B3' />
     ) : (
@@ -245,7 +245,7 @@ const SideBar = ({
   };
 
   const _navSubMenuBuilder = (index) => {
-    if (index == 0) return null;
+    if (navSubMenus[index].length == 0) return null;
     if (selectedNav == index)
       return (
         <NavSubMenuBox
