@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, Fragment } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
@@ -184,6 +184,17 @@ const Table = ({ originalData, tableBuilder, searchKeys }) => {
     );
   };
 
+  const _buildCustomCell = (cellData, index) => {
+    return (
+      <TableColumnBox key={index}>
+        <HeaderCellBox>
+          <HeaderCellBoxText>{cellData.headerText}</HeaderCellBoxText>
+        </HeaderCellBox>
+        {cellData.customCell}
+      </TableColumnBox>
+    );
+  };
+
   return (
     <>
       <FiltersBar searchValue={searchValue} setSearchValue={setSearchValue} />
@@ -192,6 +203,7 @@ const Table = ({ originalData, tableBuilder, searchKeys }) => {
           {content.map((item, index) => {
             if (item.isButton) return _buildButtonCell(item, index);
             else if (item.isBadge) return _buildBadgeCell(item, index);
+            else if (item.isCustomCell) return _buildCustomCell(item, index);
             else return _buildTextCell(item, index);
           })}
         </TableBox>
