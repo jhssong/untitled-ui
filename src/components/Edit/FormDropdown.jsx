@@ -79,7 +79,6 @@ const FormDropdown = ({ placeholder, menus, selectedMenu, handleChange }) => {
   useLayoutEffect(() => {
     if (dropdownMenuWrapperRef.current)
       setDropdownBoxHeight(dropdownMenuWrapperRef.current.scrollHeight);
-    console.log(dropdownMenuWrapperRef.current.scrollHeight);
   }, [focused]);
 
   useEffect(() => {
