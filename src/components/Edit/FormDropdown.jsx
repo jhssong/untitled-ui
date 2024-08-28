@@ -32,11 +32,12 @@ const DropdownBox = styled.div`
   flex-direction: column;
   margin-top: 0.5rem;
   max-height: ${({ $isOpen, $maxHeight }) =>
-    $isOpen ? `${$maxHeight / 16}rem` : "0"};
+    $isOpen ? ($maxHeight > 40 ? `32vh` : `${$maxHeight}rem`) : 0};
   border: ${({ theme, $isOpen }) =>
     $isOpen ? `0.0625rem solid ${theme.colors.gray100}` : null};
   border-radius: 0.5rem;
   overflow: hidden;
+  overflow-y: auto;
   transition: max-height 0.3s ease-out;
   position: absolute;
   top: 100%;
@@ -78,6 +79,7 @@ const FormDropdown = ({ placeholder, menus, selectedMenu, handleChange }) => {
   useLayoutEffect(() => {
     if (dropdownMenuWrapperRef.current)
       setDropdownBoxHeight(dropdownMenuWrapperRef.current.scrollHeight);
+    console.log(dropdownMenuWrapperRef.current.scrollHeight);
   }, [focused]);
 
   useEffect(() => {
