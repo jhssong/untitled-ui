@@ -78,7 +78,9 @@ const Modal = ({
   Icon,
   title,
   supporingText,
+  confirmText,
   handleConfirm,
+  cancelText,
   handleCancel,
   handleModalBackdropClick,
   hasInputField = false,
@@ -104,12 +106,16 @@ const Modal = ({
           )}
         </ModalBox>
         <ModalActionsBox>
-          <ModalActionsButton $isConfirmBtn={false} onClick={handleCancel}>
-            취소
-          </ModalActionsButton>
-          <ModalActionsButton $isConfirmBtn={true} onClick={handleConfirm}>
-            확인
-          </ModalActionsButton>
+          {cancelText && (
+            <ModalActionsButton $isConfirmBtn={false} onClick={handleCancel}>
+              {cancelText}
+            </ModalActionsButton>
+          )}
+          {confirmText && (
+            <ModalActionsButton $isConfirmBtn={true} onClick={handleConfirm}>
+              {confirmText}
+            </ModalActionsButton>
+          )}
         </ModalActionsBox>
       </ModalLayout>
     </ModalBackdrop>
@@ -121,9 +127,12 @@ Modal.propTypes = {
   Icon: PropTypes.elementType,
   title: PropTypes.string.isRequired,
   supporingText: PropTypes.string,
-  handleConfirm: PropTypes.func.isRequired,
-  handleCancel: PropTypes.func.isRequired,
+  confirmText: PropTypes.string,
+  handleConfirm: PropTypes.func,
+  cancelText: PropTypes.string,
+  handleCancel: PropTypes.func,
   handleModalBackdropClick: PropTypes.func.isRequired,
+
   hasInputField: PropTypes.bool,
   placeholder: PropTypes.string,
   value: PropTypes.string,
