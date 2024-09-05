@@ -25,6 +25,7 @@ const FormInput = ({
   type,
   hideCursor = false,
   disabled = false,
+  onClick = () => {},
 }) => {
   const [focused, setFocused] = useState(false);
 
@@ -44,6 +45,7 @@ const FormInput = ({
           type={type}
           $hideCursor={hideCursor}
           disabled={disabled}
+          onClick={onClick}
         />
       </InputFieldBase>
     </FormInputLayout>
@@ -59,6 +61,7 @@ FormInput.propTypes = {
   type: PropTypes.string,
   hideCursor: PropTypes.bool,
   disabled: PropTypes.bool,
+  onClick: PropTypes.func,
 };
 
 export { FormInput };
