@@ -31,16 +31,24 @@ const EditContainerDivider = styled.div`
   background-color: ${({ theme }) => theme.colors.gray200};
 `;
 
-const EditContentHeader = ({ title, onCancel, onSubmit, isEditMode }) => {
+const EditContentHeader = ({ title, buttonsData = [] }) => {
   return (
     <EditContentHeaderLayout>
       <EditContentHeaderSection>
         <EditContentHeaderText>{title}</EditContentHeaderText>
         <EditContentHeaderActions>
-          <ButtonBase onClick={onCancel}>취소</ButtonBase>
-          <ButtonBase onClick={onSubmit} $isHighlighted={true}>
-            {isEditMode ? "수정" : "저장"}
-          </ButtonBase>
+          {buttonsData.map((item, index) => {
+            return (
+              <ButtonBase
+                key={index}
+                $isHighlighted={index == buttonsData.length - 1}
+                onClick={item.onClick}
+              >
+                {item.icon}
+                {item.value}
+              </ButtonBase>
+            );
+          })}
         </EditContentHeaderActions>
       </EditContentHeaderSection>
       <EditContainerDivider />
@@ -50,9 +58,13 @@ const EditContentHeader = ({ title, onCancel, onSubmit, isEditMode }) => {
 
 EditContentHeader.propTypes = {
   title: PropTypes.string.isRequired,
-  onCancel: PropTypes.func,
-  onSubmit: PropTypes.func,
-  isEditMode: PropTypes.bool,
+  buttonsData: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.string.isRequired,
+      onClick: PropTypes.func,
+      icon: PropTypes.element,
+    })
+  ),
 };
 
 export { EditContentHeader };
