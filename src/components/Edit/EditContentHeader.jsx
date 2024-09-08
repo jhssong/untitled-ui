@@ -44,7 +44,6 @@ const EditContentHeader = ({ title, buttonsData = [] }) => {
                 $isHighlighted={index == buttonsData.length - 1}
                 onClick={item.onClick}
               >
-                {item.icon}
                 {item.value}
               </ButtonBase>
             );
@@ -62,7 +61,6 @@ EditContentHeader.propTypes = {
     PropTypes.shape({
       value: PropTypes.string.isRequired,
       onClick: PropTypes.func,
-      icon: PropTypes.element,
     })
   ),
 };
