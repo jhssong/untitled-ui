@@ -129,7 +129,7 @@ const Table = ({ originalData, tableBuilder, searchKeys }) => {
         </HeaderCellBox>
         {cellData.content.map((item, index) => {
           return (
-            <CellBox key={index} $index={index}>
+            <CellBox key={index} $index={index} onClick={item.onClick}>
               <CellText>{item.text}</CellText>
               <CellSupportingText>{item.supportingText}</CellSupportingText>
             </CellBox>
@@ -175,8 +175,8 @@ const Table = ({ originalData, tableBuilder, searchKeys }) => {
 
         {cellData.content.map((item, index) => {
           return (
-            <CellBox key={index} $index={index}>
-              {item}
+            <CellBox key={index} $index={index} onClick={item.onClick}>
+              {item.badge}
             </CellBox>
           );
         })}
