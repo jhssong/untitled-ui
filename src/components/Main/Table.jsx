@@ -82,7 +82,7 @@ const ButtonCellBase = styled.div`
 `;
 
 const Table = ({ originalData, tableBuilder, searchKeys }) => {
-  const [content, SetContent] = useState([]);
+  const [content, setContent] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPage, setTotalPage] = useState(1);
   const [searchValue, setSearchValue] = useState("");
@@ -91,7 +91,7 @@ const Table = ({ originalData, tableBuilder, searchKeys }) => {
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
     const data = originalData.slice(startIndex, startIndex + ITEMS_PER_PAGE);
     setTotalPage(Math.ceil(originalData.length / ITEMS_PER_PAGE));
-    SetContent(tableBuilder(data));
+    setContent(tableBuilder(data));
   }, [currentPage, originalData, tableBuilder]);
 
   useEffect(() => {
@@ -111,7 +111,7 @@ const Table = ({ originalData, tableBuilder, searchKeys }) => {
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
     const data = searchedData.slice(startIndex, startIndex + ITEMS_PER_PAGE);
     setTotalPage(Math.ceil(searchedData.length / ITEMS_PER_PAGE));
-    SetContent(tableBuilder(data));
+    setContent(tableBuilder(data));
   }, [
     _resetTableContent,
     currentPage,
