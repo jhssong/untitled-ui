@@ -21,6 +21,7 @@ export { EditHeaderTabs } from "./components/Edit/EditHeaderTabs";
 
 export { Loading } from "./components/Loading";
 export { Modal } from "./components/Modal";
+export { DatePicker } from "./components/Edit/DatePicker";
 
 export {
   PageBox,

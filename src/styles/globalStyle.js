@@ -38,6 +38,7 @@ export const ButtonBase = styled.div`
     ${({ theme, $isHighlighted }) =>
       $isHighlighted ? theme.colors.brand600 : theme.colors.gray300};
   cursor: pointer;
+  white-space: nowrap;
 `;
 
 export const InputFieldBase = styled.div`
