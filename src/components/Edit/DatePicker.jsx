@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import { ChevronLeft, ChevronRight } from "@untitled-ui/icons-react";
@@ -24,10 +24,6 @@ const ModalLayout = styled.div`
   flex-direction: column;
   border-radius: 0.75rem;
   background-color: white;
-`;
-
-const DatePickerLayout = styled.div`
-  display: flex;
 `;
 
 const CalendarCol = styled.div`
@@ -74,7 +70,7 @@ const CalendarCell = styled.div`
     $isSelected
       ? theme.colors.white
       : $isDisabled
-      ? theme.colors.gray500
+      ? theme.colors.gray400
       : theme.colors.gray700};
   background-color: ${({ theme, $isSelected }) =>
     $isSelected && theme.colors.brand600};
@@ -116,12 +112,14 @@ const DatePicker = ({ paramYear, paramMonth, paramDate, setPickedDate }) => {
   function generateCalendar(year, month, date) {
     if (month < 1) {
       month = 12;
-      setYear(year - 1);
+      year = year - 1;
     } else if (month > 12) {
       month = 1;
-      setYear(year + 1);
+      year = year + 1;
     }
+    setYear(year);
     setMonth(month);
+    setDate(date);
 
     // 해당 월의 첫 번째 날과 마지막 날 계산
     const firstDay = new Date(year, month - 1, 1);
@@ -171,16 +169,10 @@ const DatePicker = ({ paramYear, paramMonth, paramDate, setPickedDate }) => {
     ];
     setCalendarData(allDays);
     setSelectedMonth(`${year}년 ${String(month).padStart(2, "0")}월`);
-    setSelectedDate(
-      `${year}-${String(month).padStart(2, "0")}-${String(date).padStart(
-        2,
-        "0"
-      )}`
-    );
   }
 
-  useEffect(() => {
-    if (!year || !month || !date) {
+  const setOriginalDate = useCallback(() => {
+    if ((!paramYear || !paramMonth || !paramDate) && selectedDate == "") {
       const curr = new Date();
 
       const utc = curr.getTime() + curr.getTimezoneOffset() * 60 * 1000;
@@ -191,23 +183,29 @@ const DatePicker = ({ paramYear, paramMonth, paramDate, setPickedDate }) => {
       const todayYear = kr_curr.getFullYear();
       const todayMonth = kr_curr.getMonth() + 1;
       const todayDate = kr_curr.getDate();
-      setYear(todayYear);
-      setMonth(todayMonth);
-      setDate(todayDate);
+      generateCalendar(todayYear, todayMonth, todayDate);
+      setSelectedDate(
+        `${todayYear}-${String(todayMonth).padStart(2, "0")}-${String(
+          todayDate
+        ).padStart(2, "0")}`
+      );
     }
-  }, [year, month, date]);
+  }, [paramDate, paramMonth, paramYear, selectedDate]);
 
   useEffect(() => {
-    if (year && month && date) generateCalendar(year, month, date);
-  }, [year, month, date]);
+    setOriginalDate();
+  }, [setOriginalDate]);
 
   return (
-    <DatePickerLayout>
+    <>
       <FormInput
         placeholder='날짜를 선택해주세요'
         value={selectedDate}
         readOnly={true}
-        onClick={() => setShowModal(true)}
+        onClick={() => {
+          setOriginalDate();
+          setShowModal(true);
+        }}
       />
       {showModal && (
         <ModalBackdrop onClick={() => setShowModal(false)}>
@@ -227,7 +225,12 @@ const DatePicker = ({ paramYear, paramMonth, paramDate, setPickedDate }) => {
                 />
               </CalendarMonthRow>
               <CalendarActions>
-                <FormInput value={selectedDate} disabled={true} />
+                <FormInput
+                  value={`${year}-${String(month).padStart(2, "0")}-${String(
+                    date
+                  ).padStart(2, "0")}`}
+                  disabled={true}
+                />
                 <ButtonBase
                   onClick={() => {
                     const today = new Date();
@@ -278,11 +281,12 @@ const DatePicker = ({ paramYear, paramMonth, paramDate, setPickedDate }) => {
                 style={{ flex: 1, justifyContent: "center" }}
                 $isHighlighted={true}
                 onClick={() => {
-                  setPickedDate(
-                    `${year}-${String(month).padStart(2, "0")}-${String(
-                      date
-                    ).padStart(2, "0")}`
-                  );
+                  const newSelectedDate = `${year}-${String(month).padStart(
+                    2,
+                    "0"
+                  )}-${String(date).padStart(2, "0")}`;
+                  setSelectedDate(newSelectedDate);
+                  setPickedDate(newSelectedDate);
                   setShowModal(false);
                 }}
               >
@@ -292,7 +296,7 @@ const DatePicker = ({ paramYear, paramMonth, paramDate, setPickedDate }) => {
           </ModalLayout>
         </ModalBackdrop>
       )}
-    </DatePickerLayout>
+    </>
   );
 };
 
