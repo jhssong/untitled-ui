@@ -172,6 +172,16 @@ const DatePicker = ({ paramYear, paramMonth, paramDate, setPickedDate }) => {
   }
 
   const setOriginalDate = useCallback(() => {
+    if (
+      isNaN(paramYear) &&
+      isNaN(paramMonth) &&
+      isNaN(paramDate) &&
+      paramYear !== undefined &&
+      paramMonth !== undefined &&
+      paramDate !== undefined
+    )
+      return;
+
     if ((!paramYear || !paramMonth || !paramDate) && selectedDate == "") {
       const curr = new Date();
 
@@ -184,13 +194,22 @@ const DatePicker = ({ paramYear, paramMonth, paramDate, setPickedDate }) => {
       const todayMonth = kr_curr.getMonth() + 1;
       const todayDate = kr_curr.getDate();
       generateCalendar(todayYear, todayMonth, todayDate);
-      setSelectedDate(
-        `${todayYear}-${String(todayMonth).padStart(2, "0")}-${String(
-          todayDate
-        ).padStart(2, "0")}`
-      );
+      const newSelectedDate = `${todayYear}-${String(todayMonth).padStart(
+        2,
+        "0"
+      )}-${String(todayDate).padStart(2, "0")}`;
+      setSelectedDate(newSelectedDate);
+      setPickedDate(newSelectedDate);
+    } else if ((paramYear || paramMonth || paramDate) && selectedDate == "") {
+      generateCalendar(paramYear, paramMonth, paramDate);
+      const newSelectedDate = `${paramYear}-${String(paramMonth).padStart(
+        2,
+        "0"
+      )}-${String(paramDate).padStart(2, "0")}`;
+      setSelectedDate(newSelectedDate);
+      setPickedDate(newSelectedDate);
     }
-  }, [paramDate, paramMonth, paramYear, selectedDate]);
+  }, [paramDate, paramMonth, paramYear, selectedDate, setPickedDate]);
 
   useEffect(() => {
     setOriginalDate();
