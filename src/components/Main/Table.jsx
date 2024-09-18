@@ -94,10 +94,6 @@ const Table = ({ originalData, tableBuilder, searchKeys }) => {
     setContent(tableBuilder(data));
   }, [currentPage, originalData, tableBuilder]);
 
-  useEffect(() => {
-    _resetTableContent();
-  }, [_resetTableContent, currentPage, originalData, tableBuilder]);
-
   const handlePageChange = (newPage) => setCurrentPage(newPage);
 
   useEffect(() => {
@@ -110,6 +106,7 @@ const Table = ({ originalData, tableBuilder, searchKeys }) => {
     );
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
     const data = searchedData.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+    setCurrentPage(1);
     setTotalPage(Math.ceil(searchedData.length / ITEMS_PER_PAGE));
     setContent(tableBuilder(data));
   }, [
