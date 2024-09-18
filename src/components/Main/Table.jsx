@@ -86,6 +86,7 @@ const Table = ({ originalData, tableBuilder, searchKeys }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPage, setTotalPage] = useState(1);
   const [searchValue, setSearchValue] = useState("");
+  const [prevSearchValue, setPrevSearchValue] = useState("");
 
   const _resetTableContent = useCallback(() => {
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
@@ -94,28 +95,33 @@ const Table = ({ originalData, tableBuilder, searchKeys }) => {
     setContent(tableBuilder(data));
   }, [currentPage, originalData, tableBuilder]);
 
-  const handlePageChange = (newPage) => setCurrentPage(newPage);
-
   useEffect(() => {
     if (searchValue.length == 0) {
       _resetTableContent();
       return;
     }
-    const searchedData = originalData.filter((item) =>
-      searchKeys.some((key) => item[key].includes(searchValue))
-    );
+    const searchedData = originalData.filter((item) => {
+      const searchValues = searchValue.split(",").map((value) => value.trim());
+      return searchValues.every((value) => {
+        return searchKeys.some((key) => {
+          return String(item[key]).includes(value);
+        });
+      });
+    });
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
     const data = searchedData.slice(startIndex, startIndex + ITEMS_PER_PAGE);
-    setCurrentPage(1);
+    if (searchValue != prevSearchValue) setCurrentPage(1);
     setTotalPage(Math.ceil(searchedData.length / ITEMS_PER_PAGE));
     setContent(tableBuilder(data));
+    setPrevSearchValue(searchValue);
   }, [
     _resetTableContent,
-    currentPage,
     originalData,
     searchValue,
     tableBuilder,
     searchKeys,
+    currentPage,
+    prevSearchValue,
   ]);
 
   const _buildTextCell = (cellData, index) => {
@@ -207,7 +213,7 @@ const Table = ({ originalData, tableBuilder, searchKeys }) => {
         <Pagenation
           currentPage={currentPage}
           totalPage={totalPage}
-          onPageChange={handlePageChange}
+          onPageChange={(newPage) => setCurrentPage(newPage)}
         />
       </TableLayout>
     </>

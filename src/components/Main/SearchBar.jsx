@@ -7,7 +7,7 @@ import { styledIcon } from "../../styles/globalStyle";
 
 const SearchBarLayout = styled.div`
   display: flex;
-  width: 100%;
+  flex: 1;
   gap: 0.5rem;
   padding: 0.625rem 0.875rem;
   border-radius: 0.5rem;
@@ -54,7 +54,7 @@ const SearchBar = ({ searchValue, setSearchValue }) => {
         type='text'
         placeholder='이름을 입력하세요'
         value={searchValue}
-        onChange={(e) => setSearchValue(e.target.value.trim())}
+        onChange={(e) => setSearchValue(e.target.value)}
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
       />
