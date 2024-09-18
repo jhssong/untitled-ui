@@ -11,8 +11,7 @@ import {
 } from "../../styles/globalStyle";
 
 const SidebarLayout = styled.div`
-  height: auto;
-  min-height: 100vh;
+  height: 100vh;
   min-width: 19.5rem;
   display: flex;
   justify-content: space-between;

@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 export const PageBox = styled.div`
   display: flex;
+  height: 100vh;
+  overflow-y: hidden;
 `;
 
 export const MainBox = styled.div`
@@ -13,6 +15,7 @@ export const MainBox = styled.div`
   padding-bottom: 3rem;
   background-color: ${({ theme, $isEditMode }) =>
     !$isEditMode ? theme.colors.white : theme.colors.gray25};
+  overflow-y: auto;
 `;
 
 export const ContainerBox = styled.div`
