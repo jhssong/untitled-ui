@@ -173,25 +173,7 @@ const DatePicker = ({ paramYear, paramMonth, paramDate, setPickedDate }) => {
   }
 
   const setOriginalDate = useCallback(() => {
-    if (
-      !isNaN(paramYear) &&
-      !isNaN(paramMonth) &&
-      !isNaN(paramDate) &&
-      paramYear !== undefined &&
-      paramMonth !== undefined &&
-      paramDate !== undefined
-    )
-      return;
-
-    if (
-      (!paramYear ||
-        !paramMonth ||
-        !paramDate ||
-        isNaN(paramYear) ||
-        isNaN(paramMonth) ||
-        isNaN(paramDate)) &&
-      selectedDate == ""
-    ) {
+    if ((!paramYear || !paramMonth || !paramDate) && selectedDate == "") {
       const curr = new Date();
 
       const utc = curr.getTime() + curr.getTimezoneOffset() * 60 * 1000;
