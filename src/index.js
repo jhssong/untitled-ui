@@ -14,6 +14,7 @@ export { Header } from "./components/Main/Header";
 export { SideBar } from "./components/Main/SideBar";
 
 export { FormInput } from "./components/Edit/FormInput";
+export { FormTextarea } from "./components/Edit/FormTextarea";
 export { FormDropdown } from "./components/Edit/FormDropdown";
 export { FormRadio } from "./components/Edit/FormRadio";
 export { FormSection } from "./components/Edit/FormContainer";
